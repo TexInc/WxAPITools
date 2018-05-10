@@ -1,0 +1,30 @@
+<import src="../../../common/head.wxml"/>
+<import src="../../../common/foot.wxml"/>
+
+<view class="container">
+  <template is="head" data="{{title: 'request'}}"/>
+
+  <view class="page-body">
+    <view class="page-body-wording">
+      <block wx:if="{{hasUserInfo === false}}">
+          <text class="page-body-text">未上传数据</text>
+          <text class="page-body-text">
+        点击向服务器发起请求上传组的信息
+      </text>
+      <text class="page-body-text">
+        组名 ： FreeTexSoft
+      </text>
+        </block>
+        <block wx:if="{{hasUserInfo === true}}">
+          <view><text class="userinfo-nickname">{{groups_url}}</text></view>
+          <view><text class="userinfo-nickname">组名:{{groups_name}}</text></view>
+        </block>
+      <text class="userinfo-nickname">{{user_info}}</text>
+    </view>
+    <view class="btn-area">
+      <button bindtap="makeRequest" type="primary" disabled="{{buttonDisabled}}" loading="{{loading}}">request</button>
+    </view>
+  </view>
+
+  <template is="foot"/>
+</view>

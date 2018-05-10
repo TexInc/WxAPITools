@@ -1,0 +1,30 @@
+<import src="../../../common/head.wxml"/>
+<import src="../../../common/foot.wxml"/>
+
+<view class="container">
+  <template is="head" data="{{title: 'request'}}"/>
+
+  <view class="page-body">
+    <view class="page-body-wording">
+      <block wx:if="{{hasUserInfo === false}}">
+          <text class="page-body-text">未上传数据</text>
+          <text class="page-body-text">
+        请输入数据，点击上传
+      </text>
+      <view class="weui-cell weui-cell_input">
+          <input class="weui-input py-input"  maxlength="20" bindinput="bindGroupInput" placeholder="组名" />
+        </view>
+        </block>
+        <block wx:if="{{hasUserInfo === true}}">
+          <view><text class="userinfo-nickname">{{groups_url}}</text></view>
+          <view><text class="userinfo-nickname">组名:{{groups_name}}</text></view>
+        </block>
+      <text class="userinfo-nickname">{{user_info}}</text>
+    </view>
+    <view class="btn-area">
+      <button bindtap="makeRequest" type="primary" disabled="{{buttonDisabled}}" loading="{{loading}}">request</button>
+    </view>
+  </view>
+
+  <template is="foot"/>
+</view>

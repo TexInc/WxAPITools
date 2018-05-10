@@ -1,0 +1,10 @@
+@import "../../../common/lib/weui.wxss";
+
+.page-section{
+  margin-bottom: 20rpx;
+}
+.py-input{
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 100%;
+}
