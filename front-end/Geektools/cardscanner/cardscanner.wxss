@@ -1,0 +1,64 @@
+.scanner {
+  margin-top: 5%;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  margin-left: 30%;
+  height: 30%;
+  width: 40%;
+  border: 1px solid #000;
+  background-color: #fff;
+  border-top: 1rpx solid #D9D9D9;
+  border-bottom: 1rpx solid #D9D9D9;
+  align-items: center;
+  justify-content: center;
+}
+
+.chooseImage{
+  overflow: hidden;
+  margin-bottom: 30%;
+  z-index: 1;
+}
+.image-plus-text{
+  overflow: hidden;
+  text-align: center;
+}
+.page-section{
+  overflow: hidden;
+  margin-bottom: 20rpx;
+}
+.py-input{
+  justify-content: center;
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 25%;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 50%;
+}
+.scanner .canvas {
+  overflow: hidden;
+  flex: 1;
+  width: 100%;
+}
+.canvas{
+  overflow: hidden;
+  position: absolute;
+  z-index: 10
+}
+
+.scanner .buttons {
+  display: flex;
+  width: 100%;
+  height: 120rpx;
+  color: #4f6bf0;
+  line-height: 120rpx;
+  background-color: black;
+  justify-content: space-around;
+}
+
+.buttons .choose, .buttons .confirm {
+  flex: 1;
+  text-align: center;
+  margin-top: 20%;
+}

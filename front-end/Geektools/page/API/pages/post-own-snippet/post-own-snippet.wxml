@@ -1,0 +1,35 @@
+<!--page/API/pages/post-own-snippet/post-own-snippet.wxml-->
+<import src="../../../common/head.wxml"/>
+<import src="../../../common/foot.wxml"/>
+
+<view class="container">
+  <template is="head" data="{{title: 'request'}}"/>
+
+  <view class="page-body">
+    <view class="page-body-wording">
+      <block wx:if="{{hasUserInfo === false}}">
+          <text class="page-body-text">未上传</text>
+          <text class="page-body-text">
+        点击发起请求上传信息
+      </text>
+      <text class="page-body-text">
+        title : hello TexTec
+        code : print("hello TexTec")
+        linenos : True
+        language : python
+      </text>
+        </block>
+        <block wx:if="{{hasUserInfo === true}}">
+        <view><text class="userinfo-nickname">id : {{info_id}}</text></view>
+          <view><text class="userinfo-nickname">title: {{info_title}}</text></view>
+          <view><text class="userinfo-nickname">language: {{info_language}}</text></view>
+        </block>
+      </view>
+    <view class="btn-area">
+      <button bindtap="makeRequest" type="primary" disabled="{{buttonDisabled}}" loading="{{loading}}">request</button>
+    </view>
+  </view>
+
+  <template is="foot"/>
+</view>
+

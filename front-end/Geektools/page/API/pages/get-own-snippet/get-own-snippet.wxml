@@ -1,0 +1,32 @@
+<!--page/API/pages/get-own-snippet/get-own-snippet.wxml-->
+<import src="../../../common/head.wxml"/>
+<import src="../../../common/foot.wxml"/>
+
+<view class="container">
+  <template is="head" data="{{title: 'request'}}"/>
+
+  <view class="page-body">
+    <view class="page-body-wording">
+      <block wx:if="{{hasUserInfo === false}}">
+          <text class="page-body-text">未获取</text>
+          <text class="page-body-text">
+        点击向服务器发起请求获取服务端信息
+      </text>
+        </block>
+        <block wx:if="{{hasUserInfo === true}}">
+          <view><text class="userinfo-nickname">id : {{info_id}}</text></view>
+          <view><text class="userinfo-nickname">title: {{info_title}}</text></view>
+          <view><text class="userinfo-nickname">code: {{info_code}}</text></view>
+          <view><text class="userinfo-nickname">linenos: {{info_linenos}}</text></view>
+          <view><text class="userinfo-nickname">language: {{info_language}}</text></view>
+        </block>
+      <text class="userinfo-nickname">{{user_info}}</text>
+    </view>
+    <view class="btn-area">
+      <button bindtap="makeRequest" type="primary" disabled="{{buttonDisabled}}" loading="{{loading}}">request</button>
+    </view>
+  </view>
+
+  <template is="foot"/>
+</view>
+

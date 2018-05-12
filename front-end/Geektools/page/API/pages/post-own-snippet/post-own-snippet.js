@@ -1,11 +1,12 @@
+// page/API/pages/post-own-snippet/post-own-snippet.js
 const requestUrl = require('../../../../config').requestUrl
 const duration = 2000
 
 Page({
-  data:{
+  data: {
     hasUserInfo: false
   },
-  makeRequest: function() {
+  makeRequest: function () {
     var that = this
     var self = this
     self.setData({
@@ -13,11 +14,15 @@ Page({
     })
 
     wx.request({
-      url: 'http://127.0.0.1:8000/users/',
+      url: 'http://127.0.0.1:8000/snippets/',
       data: {
-        noncestr: Date.now()
+        'title': 'hello TexTec',
+        'code': 'print("hello TexTec")',
+        'linenos': 'True',
+        'language': 'python',
       },
-      success: function(result) {
+      method: 'POST',
+      success: function (result) {
         wx.showToast({
           title: '请求成功',
           icon: 'success',
@@ -29,17 +34,18 @@ Page({
         })
         that.setData({
           hasUserInfo: true,
-          userInfo: result['data'][0],
-          user_url : result['data'][0]['url'],
-          user_name : result['data'][0]['username'],
-          user_email : result['data'][0]['email'],
+          info_id: result['data']['id'],
+          info_title: result['data']['title'],
+          info_code: result['data']['code'],
+          info_linenos: result['data']['linenos'],
+          info_language: result['data']['language'],
         })
         that.update()
         console.log('request success', result),
-        console.log(result['data'])
+          console.log(result['data'])
       },
 
-      fail: function({errMsg}) {
+      fail: function ({ errMsg }) {
         console.log('request fail', errMsg)
         self.setData({
           loading: false

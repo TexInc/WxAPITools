@@ -1,11 +1,12 @@
+// page/API/pages/get-own-snippet/get-own-snippet.js
 const requestUrl = require('../../../../config').requestUrl
 const duration = 2000
 
 Page({
-  data:{
+  data: {
     hasUserInfo: false
   },
-  makeRequest: function() {
+  makeRequest: function () {
     var that = this
     var self = this
     self.setData({
@@ -13,11 +14,11 @@ Page({
     })
 
     wx.request({
-      url: 'http://127.0.0.1:8000/users/',
+      url: 'http://127.0.0.1:8000/snippets/',
       data: {
         noncestr: Date.now()
       },
-      success: function(result) {
+      success: function (result) {
         wx.showToast({
           title: '请求成功',
           icon: 'success',
@@ -29,17 +30,19 @@ Page({
         })
         that.setData({
           hasUserInfo: true,
-          userInfo: result['data'][0],
-          user_url : result['data'][0]['url'],
-          user_name : result['data'][0]['username'],
-          user_email : result['data'][0]['email'],
+          mainInfo: result['data'][0],
+          info_id: result['data'][0]['id'],
+          info_title: result['data'][0]['title'],
+          info_code: result['data'][0]['code'],
+          info_linenos: result['data'][0]['linenos'],
+          info_language: result['data'][0]['language'],
         })
         that.update()
         console.log('request success', result),
-        console.log(result['data'])
+          console.log(result['data'])
       },
 
-      fail: function({errMsg}) {
+      fail: function ({ errMsg }) {
         console.log('request fail', errMsg)
         self.setData({
           loading: false

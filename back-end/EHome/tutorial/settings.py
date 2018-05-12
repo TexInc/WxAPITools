@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'werkzeug_debugger_runserver',
     'django_extensions',
+    'snippets.apps.SnippetsConfig',
 ]
 
 MIDDLEWARE = [

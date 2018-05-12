@@ -41,6 +41,32 @@ Page({
           }
         ]
       }, {
+        id: 'own-snippet',
+        name: '个人定制API',
+        open: false,
+        pages: [
+          {
+            zh: "获取服务端信息",
+            url: 'get-own-snippet/get-own-snippet'
+          }, {
+            zh: '上传信息到服务端',
+            url: 'post-own-snippet/post-own-snippet'
+          }
+        ]
+      }, {
+        id: 'faceset',
+        name: '人脸数据集操作',
+        open: false,
+        pages: [
+          {
+            zh: "人脸数据入库",
+            url: 'faceset-add/faceset-add'
+          }, {
+            zh: '上传信息到服务端',
+            url: 'post-own-snippet/post-own-snippet'
+          }
+        ]
+      },{
         id: 'network',
         name: '网络',
         open: false,
