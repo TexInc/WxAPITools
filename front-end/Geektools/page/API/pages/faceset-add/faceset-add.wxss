@@ -1,2 +1,2 @@
 /* page/API/pages/faceset-add/faceset-add.wxss */
-@import '../../../../cardscanner/cardscanner.wxss'
+@import '../../../../facesetcontrol/facesetcontrol.wxss'

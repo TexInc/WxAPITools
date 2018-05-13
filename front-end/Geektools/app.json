@@ -13,7 +13,8 @@
     "page/API/pages/post-form-groups/post-form-groups",
     "page/API/pages/get-own-snippet/get-own-snippet",
     "page/API/pages/post-own-snippet/post-own-snippet",
-    "page/API/pages/faceset-add/faceset-add"
+    "page/API/pages/faceset-add/faceset-add",
+    "page/API/pages/faceset-search/faceset-search"
   ],
   "window": {
     "navigationBarTextStyle": "black",

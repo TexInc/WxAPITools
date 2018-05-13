@@ -62,8 +62,8 @@ Page({
             zh: "人脸数据入库",
             url: 'faceset-add/faceset-add'
           }, {
-            zh: '上传信息到服务端',
-            url: 'post-own-snippet/post-own-snippet'
+            zh: '人脸数据搜索',
+            url: 'faceset-search/faceset-search'
           }
         ]
       },{

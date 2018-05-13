@@ -1,0 +1,44 @@
+<!-- facesetadd template -->
+<template name="facesetadd">
+  <view class='scanner' bindtap="bindChooseImg">
+          <canvas class='canvas' id='scannerCanvas' canvas-id='scannerCanvas' disable-scroll="true" />
+        <view class="chooseImage">
+          <view class="image-plus image-plus-nb">
+            <view class="image-plus-horizontal"></view>
+            <view class="image-plus-vertical"></view>
+          </view>
+          <view class="image-plus-text">选择图片</view>
+        </view>
+  </view>
+  <view class="weui-cell weui-cell_input">
+  <view>班级名规则,例如软件1701班,则输入rj1701</view>
+          <input class="weui-input py-input"  maxlength="20" bindinput="bindClassInput" placeholder="请输入你的班级"/>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <input class="weui-input py-input"  maxlength="20" bindinput="bindIdInput" placeholder="请输入你的学号"/>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <input class="weui-input py-input"  maxlength="20" bindinput="bindNameInput" placeholder="请输入你的姓名"/>
+        </view>
+  <view class="buttons">
+      <view class="confirm" bindtap="bindConfirm">确定</view>
+    </view>
+</template>
+
+
+<!-- facesetsearch template -->
+<template name="facesetsearch">
+  <view class='scanner' bindtap="bindChooseImg">
+          <canvas class='canvas' id='scannerCanvas' canvas-id='scannerCanvas' disable-scroll="true" />
+        <view class="chooseImage">
+          <view class="image-plus image-plus-nb">
+            <view class="image-plus-horizontal"></view>
+            <view class="image-plus-vertical"></view>
+          </view>
+          <view class="image-plus-text">选择图片</view>
+        </view>
+  </view>
+  <view class="buttons">
+      <view class="confirm" bindtap="bindConfirm">确定</view>
+    </view>
+</template>

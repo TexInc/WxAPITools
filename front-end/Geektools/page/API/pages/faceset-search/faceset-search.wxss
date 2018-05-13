@@ -1,0 +1,2 @@
+/* page/API/pages/faceset-search/faceset-search.wxss */
+@import '../../../../facesetcontrol/facesetcontrol.wxss'

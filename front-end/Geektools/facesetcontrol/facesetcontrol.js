@@ -1,15 +1,16 @@
 var upng = require('./upng-js/UPNG.js')
 var setadd = require('./FaceSet/setadd.js')
+var setsearch = require('./FaceSet/setsearch.js')
 var Promise = require('./promise.js')
 
 const canvasID = 'scannerCanvas'
 const actionTypes = ['ImageChanged', 'DecodeStart', 'DecodeComplete']
 
-export default class CardScanner {
+export default class FacesetControl {
   constructor(page) {
     this.page = page
     this.canvas = wx.createCanvasContext(canvasID)
-    page.cardScanner = this
+    page.facesetControl = this
     page.bindChooseImg = this.bindChooseImg
     page.bindConfirm = this.bindConfirm
   }
@@ -32,14 +33,14 @@ export default class CardScanner {
   }
 
   bindChooseImg(e) {
-    let scanner = this.cardScanner
+    let control = this.facesetControl
     wx.chooseImage({
       count: 1,
       sizeType: ['compressed'],
       success: function (res) {
-        scanner.onImageChanged && scanner.onImageChanged(res.tempFilePaths[0])
+        control.onImageChanged && control.onImageChanged(res.tempFilePaths[0])
         console.log(res.tempFilePaths)
-        scanner.setImage(res.tempFilePaths[0])
+        control.setImage(res.tempFilePaths[0])
       },
       fail(e) {
         console.error(e)
@@ -48,10 +49,10 @@ export default class CardScanner {
   }
 
   bindConfirm(e) {
-    let scanner = this.cardScanner
-    if (scanner.finishDraw) {
-      scanner.onDecodeStart && scanner.onDecodeStart()
-      scanner._decodeTarget()
+    let control = this.facesetControl
+    if (control.finishDraw) {
+      control.onDecodeStart && control.onDecodeStart()
+      control._decodeTarget()
     } else {
       console.log('绘制未完成')
     }
@@ -136,7 +137,11 @@ export default class CardScanner {
         return that._toPNGBase64(res.buffer, res.width, res.height)
       })
       .then((base64) => {
-        return that._requestFaceSetAdd(base64)
+        if (this.page.data.run_type == 'setadd'){
+          return that._requestFaceSetAdd(base64)
+        } else if (this.page.data.run_type == 'setsearch'){
+          return that._requestFaceSetSearch(base64)
+        }
       })
       .then(res => {
         that.onDecodeComplete && that.onDecodeComplete({
@@ -210,7 +215,23 @@ export default class CardScanner {
 
   _requestFaceSetAdd(base64) {
     return new Promise((resolve, reject) => {
-      setadd.request(base64, {
+      setadd.request(base64,this.page.data.class_id,this.page.data.user_id,this.page.data.user_name, {
+        success(res) {
+          resolve(res)
+        },
+        fail() {
+          reject({
+            code: 3,
+            reason: '图片解析失败'
+          })
+        }
+      })
+    })
+  }
+
+  _requestFaceSetSearch(base64) {
+    return new Promise((resolve, reject) => {
+      setsearch.request(base64, {
         success(res) {
           resolve(res)
         },

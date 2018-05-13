@@ -1,0 +1,3 @@
+<!--page/API/pages/faceset-search/faceset-search.wxml-->
+<import src="../../../../facesetcontrol/facesetcontrol" />
+<template is="facesetsearch" />

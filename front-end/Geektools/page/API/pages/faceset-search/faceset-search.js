@@ -1,20 +1,9 @@
+// page/API/pages/faceset-search/faceset-search.js
 import FacesetControl from '../../../../facesetcontrol/facesetcontrol.js'
 Page({
   data: {
-    run_type : 'setadd',
+    run_type:'setsearch',
     image_type: 'BASE64',
-    user_id:'',
-    class_id: '',
-    user_name: ''
-  },
-  bindClassInput: function (e) {
-    this.data.class_id = e.detail.value
-  },
-  bindIdInput: function (e) {
-    this.data.user_id = e.detail.value
-  },
-  bindNameInput: function (e) {
-    this.data.user_name = e.detail.value
   },
   onLoad(options) {
     let that = this
@@ -25,12 +14,12 @@ Page({
         console.log('imgPath', imgPath)
       })
       .on('DecodeStart', (imgPath) => {
-        console.log('DecodeStart',this.data.user_name)
+        console.log('DecodeStart', this.data.user_name)
         wx.showLoading({
           title: '解析中',
           mask: true
         },
-        console.log('imgPath:',imgPath))
+          console.log('imgPath:', imgPath))
       })
       .on('DecodeComplete', (res) => {
         if (res.code == 0) {
