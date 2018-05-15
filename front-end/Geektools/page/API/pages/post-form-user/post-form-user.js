@@ -21,7 +21,7 @@ Page({
     })
 
     wx.request({
-      url: 'http://ehome.susmote.com/users/',
+      url: 'http://ehome.susmote.com/',
       data: {
         'username' : this.data.username,
         'email': this.data.email

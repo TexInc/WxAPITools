@@ -13,9 +13,9 @@ Page({
     })
 
     wx.request({
-      url: 'http://ehome.susmote.com/groups/',
+      url: 'https://ehome.susmote.com/zb_system/cmd.php?act=os_wxapi&v=v1&mode=catelist',
       data: {
-        noncestr: Date.now()
+        
       },
       success: function (result) {
         wx.showToast({

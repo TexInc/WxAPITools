@@ -13,9 +13,10 @@ Page({
     })
 
     wx.request({
-      url: 'http://127.0.0.1:8000/users/',
+      url: 'https://ehome.susmote.com/zb_system/cmd.php?act=os_wxapi&v=v1&mode=article',
+      
       data: {
-        noncestr: Date.now()
+        'id':'1'
       },
       success: function(result) {
         wx.showToast({
@@ -29,10 +30,6 @@ Page({
         })
         that.setData({
           hasUserInfo: true,
-          userInfo: result['data'][0],
-          user_url : result['data'][0]['url'],
-          user_name : result['data'][0]['username'],
-          user_email : result['data'][0]['email'],
         })
         that.update()
         console.log('request success', result),

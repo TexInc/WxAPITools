@@ -1,6 +1,6 @@
 const config = require("../../config/index.js")
 let image_type = 'BASE64'
-let group_id_list = 'rj1709,1605'
+let group_id_list = 'rj1710,rj1709'
 
 let url = config.facesearchurl + config.setsearch + '?' + config.access_token
 

@@ -37,6 +37,7 @@ export default class FacesetControl {
     wx.chooseImage({
       count: 1,
       sizeType: ['compressed'],
+      sourceType: ['camera'],
       success: function (res) {
         control.onImageChanged && control.onImageChanged(res.tempFilePaths[0])
         console.log(res.tempFilePaths)
